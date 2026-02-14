@@ -18,7 +18,7 @@ import BaseLayout from '../../../layouts/BaseLayout.astro';
   ]}
 >
   <h1>Contacto</h1>
-  <Fragment set:html=`<form class="contact-form" action="https://formsubmit.co/admin@gacha.plus" method="POST">
+  <Fragment set:html={`<form class="contact-form" action="https://formsubmit.co/admin@gacha.plus" method="POST">
   <label for="name">Nombre</label>
   <input type="text" id="name" name="name" required />
   <label for="email">Correo</label>
@@ -28,5 +28,5 @@ import BaseLayout from '../../../layouts/BaseLayout.astro';
   <label for="message">Mensaje</label>
   <textarea id="message" name="message"></textarea>
   <button type="submit">Enviar</button>
-</form>` />
+</form>`} />
 </BaseLayout>
