@@ -1,0 +1,47 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+  title="Page Not Found - Gacha Plus"
+  lang="en"
+>
+  <div class="page-404">
+    <h1>404</h1>
+    <p>The page you are looking for does not exist or has been moved.</p>
+    <div class="page-404-links">
+      <a href="/" class="su-button su-button-download">Go to Homepage</a>
+      <a href="/download-android/" class="su-button su-button-download">Download for Android</a>
+      <a href="/download-pc/" class="su-button su-button-download">Download for PC</a>
+    </div>
+  </div>
+</BaseLayout>
+
+<style is:global>
+  .page-404 {
+    text-align: center;
+    padding: 40px 20px;
+  }
+  .page-404 h1 {
+    font-size: 72px;
+    color: #6003f7;
+    margin-bottom: 10px;
+  }
+  .page-404 p {
+    font-size: 18px;
+    color: #555;
+    margin-bottom: 30px;
+  }
+  .page-404-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+    max-width: 500px;
+    margin: 0 auto;
+  }
+  .page-404-links .su-button {
+    flex: 1;
+    min-width: 150px;
+  }
+</style>

@@ -39,6 +39,17 @@ const langSwitcher: Record<string, { label: string; href: string }> = {
 
 const nav = navItems[lang] || navItems.en;
 const currentYear = new Date().getFullYear();
+const ogImage = canonicalUrl ? 'https://gacha.plus/images/gacha-plus-Download.webp' : '/images/gacha-plus-Download.webp';
+const pageUrl = canonicalUrl || 'https://gacha.plus/';
+
+const isHomepage = [
+  'https://gacha.plus/',
+  'https://gacha.plus/es/app/',
+  'https://gacha.plus/fr/mod/',
+  'https://gacha.plus/de/herunterladen/',
+  'https://gacha.plus/it/scaricare/',
+  'https://gacha.plus/pt/baixar/',
+].includes(pageUrl);
 ---
 
 <!DOCTYPE html>
@@ -53,6 +64,42 @@ const currentYear = new Date().getFullYear();
   {hreflangLinks.map((link) => (
     <link rel="alternate" hreflang={link.lang} href={link.href} />
   ))}
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content={pageTitle} />
+  {seoDescription && <meta property="og:description" content={seoDescription} />}
+  <meta property="og:url" content={pageUrl} />
+  <meta property="og:image" content={ogImage} />
+  <meta property="og:image:width" content="350" />
+  <meta property="og:image:height" content="193" />
+  <meta property="og:site_name" content="Gacha Plus" />
+  <meta property="og:locale" content={lang} />
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content={pageTitle} />
+  {seoDescription && <meta name="twitter:description" content={seoDescription} />}
+  <meta name="twitter:image" content={ogImage} />
+  {isHomepage && (
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "Gacha Plus",
+      "operatingSystem": "Android, Windows, Linux, MacOS",
+      "applicationCategory": "GameApplication",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      },
+      "softwareVersion": "1.2.0",
+      "datePublished": "2023-02-10",
+      "description": seoDescription || "Gacha Plus is a Gacha Club mod with new outfits, accessories and HD backgrounds by FemLol Studio, Beowulf and Gacha Emika.",
+      "image": "https://gacha.plus/images/gacha-plus-Download.webp",
+      "url": pageUrl,
+      "author": {
+        "@type": "Organization",
+        "name": "FemLol Studio, Beowulf and Gacha Emika"
+      }
+    })} />
+  )}
 </head>
 <body>
   <header class="site-header">
