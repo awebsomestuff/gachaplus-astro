@@ -1,0 +1,32 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+  title="Contatto"
+  seoTitle="Contatto"
+  seoDescription=""
+  lang="it"
+  canonicalUrl="https://gacha.plus/it/contatto/"
+  hreflangLinks={[
+  { lang: "en", href: "https://gacha.plus/contact/" },
+  { lang: "es", href: "https://gacha.plus/es/contacto/" },
+  { lang: "fr", href: "https://gacha.plus/fr/contactez/" },
+  { lang: "de", href: "https://gacha.plus/de/kontakt/" },
+  { lang: "it", href: "https://gacha.plus/it/contatto/" },
+  { lang: "pt", href: "https://gacha.plus/pt/contato/" }
+  ]}
+>
+  <h1>Contatto</h1>
+  <Fragment set:html=`<form class="contact-form" action="https://formsubmit.co/admin@gacha.plus" method="POST">
+  <label for="name">Nome</label>
+  <input type="text" id="name" name="name" required />
+  <label for="email">Email</label>
+  <input type="email" id="email" name="email" required />
+  <label for="website">Sito web</label>
+  <input type="url" id="website" name="website" />
+  <label for="message">Messaggio</label>
+  <textarea id="message" name="message"></textarea>
+  <button type="submit">Inviare</button>
+</form>` />
+</BaseLayout>
